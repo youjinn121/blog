@@ -54,9 +54,10 @@ public class PostService {
                 .build();
 
         PostDomain savedPost = postRepository.save(updatedPost);
-        return new PostResponseDto(savedPost);
-    }
+        return  new PostResponseDto(savedPost);
 
+    }
+// 
     @Transactional
     public PostResponseDto deletePost(int id) {
         PostDomain post = postRepository.findById(id)

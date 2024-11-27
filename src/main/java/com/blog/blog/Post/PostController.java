@@ -22,7 +22,7 @@ public class PostController {
     }
 
     @GetMapping("/posts/{id}")
-    public PostResponseDto getPostById(@PathVariable int id){ // url 경로의 {id}를 매개변수로 받음
+    public PostResponseDto getPostById(@PathVariable int id) { // url 경로의 {id}를 매개변수로 받음
         return postService.getPostById(id); // id를 전달 후, 사용자 정보 조회
     } // 서비스에서 데이터베이스 조회 후, id에 맞는 사용자 dto로 반환
 

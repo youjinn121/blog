@@ -28,6 +28,7 @@ public class UserService {
         return new UserResponseDto(user);
     }
 
+    // 유효성 체크
     public UserResponseDto createUser(UserRequestDto requestDto) {
         UserDomain user = UserDomain.builder()
                 .userName(requestDto.getUserName())

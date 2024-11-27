@@ -53,6 +53,11 @@ public class PostDomain {
         this.update_date = update_date;
     }
 
+    public PostDomain(UserDomain user) {
+        this.user = user;
+        user.getPosts().add(this);
+    }
+
 }
 
 // 전체 or 특정 게시물 조회 시-> username, title, content, createdate, updatedate 반환
