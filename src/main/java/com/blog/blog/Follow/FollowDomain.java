@@ -5,7 +5,9 @@ import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -19,22 +21,27 @@ public class FollowDomain {
     private int follow_id;
 
     @ManyToOne
-    @JoinColumn(name = "follower_name", nullable =true)
-    private UserDomain user_following; // 유저를 팔로우
+    @JoinColumn(name = "follower_name", nullable =true) //
+    private UserDomain following; // 유저를 팔로우
 
     @ManyToOne
     @JoinColumn(name = "following_name", nullable =true)
-    private UserDomain user_followed; // 유저가 팔로우
+    private UserDomain follower; // 유저가 팔로우
+
+    @CreationTimestamp
+    @Column(updatable = false)
+    private LocalDateTime create_date;
 
     public FollowDomain() {
 
     }
 
     @Builder
-    public FollowDomain(int follow_id, UserDomain user_following, UserDomain user_followed) {
+    public FollowDomain(int follow_id, UserDomain following, UserDomain follower, LocalDateTime create_date) {
         this.follow_id = follow_id;
-        this.user_following = user_following;
-        this.user_followed = user_followed;
+        this.following = following;
+        this.follower = follower;
+        this.create_date = create_date;
     }
 
 

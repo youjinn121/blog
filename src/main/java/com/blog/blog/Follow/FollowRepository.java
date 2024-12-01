@@ -8,13 +8,12 @@ import java.util.List;
 
 public interface FollowRepository extends JpaRepository<FollowDomain, Integer> {
 
-    List<FollowDomain> findByFollower(UserDomain follower);
 
-    List<FollowDomain> findByFollowing(UserDomain following);
+    List<FollowDomain> findFollowersByUserId(int userId);
 
-    <NewFollowing extends UserDomain> NewFollowing save(NewFollowing following);
+    List<FollowDomain> findFollowingByUserId(int userId);
 
-    void deleteByFollowing(UserDomain follower_user, UserDomain following_users);
+    void deleteByFollowing(int userId, int followerId);
 
 }
 
