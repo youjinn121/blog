@@ -54,5 +54,9 @@ public class UserDomain {
 
     }
 
+    public UserDomain(int userId, String userName) {
 
+        this.userId = userId;
+        this.userName = userName;
+    }
 }
